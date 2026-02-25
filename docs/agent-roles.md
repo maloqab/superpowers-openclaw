@@ -2,7 +2,9 @@
 
 ## Overview
 
-Not every skill is relevant to every agent. This guide maps the right superpowers skills to common agent roles in OpenClaw multi-agent setups.
+Not every skill is relevant to every agent. This guide maps superpowers skills to common agent roles.
+
+If you run a **single agent**, the coder template covers the broadest skill set — it includes TDD, debugging, planning, and verification. If you run **multiple agents** with specialized roles, use the per-role mappings below to give each agent only the skills it needs.
 
 ## Role Definitions
 
@@ -63,6 +65,10 @@ Not every skill is relevant to every agent. This guide maps the right superpower
 - **brainstorming** — Exploring article angles before writing.
 
 ## Customizing for Your Setup
+
+### Single agent
+
+If you run a single general-purpose agent, combine skills from the coder and orchestrator roles. This gives you the full development workflow — planning, TDD, debugging, code review, and verification.
 
 ### Custom roles
 

@@ -38,7 +38,7 @@ git clone https://github.com/maloqab/superpowers-openclaw.git /tmp/superpowers-o
 /tmp/superpowers-openclaw/install.sh
 ```
 
-See [superpowers-openclaw](https://github.com/maloqab/superpowers-openclaw) for agent role templates and multi-agent integration docs.
+See [superpowers-openclaw](https://github.com/maloqab/superpowers-openclaw) for agent role templates, per-agent skill filtering, and detailed platform docs.
 
 ## Verify
 

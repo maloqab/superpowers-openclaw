@@ -1,19 +1,19 @@
 # Superpowers for OpenClaw
 
-Bring [superpowers](https://github.com/obra/superpowers) development workflow skills to your [OpenClaw](https://openclaw.ai) multi-agent system.
+Bring [superpowers](https://github.com/obra/superpowers) development workflow skills to [OpenClaw](https://openclaw.ai).
 
 ## Why
 
 Superpowers gives coding agents a complete development workflow: brainstorming, planning, TDD, debugging, code review, and more. It works with Claude Code, Cursor, Codex, and OpenCode — but not OpenClaw.
 
-OpenClaw runs multiple AI agents (coder, reviewer, researcher, orchestrator) coordinated via Slack. Each agent needs different skills: coders need TDD and debugging, orchestrators need planning and delegation, reviewers need systematic investigation.
+**superpowers-openclaw** installs all 14 superpowers skills into OpenClaw's native skill system. Whether you run a single agent or a fleet of specialists, every agent gets access to battle-tested development workflows out of the box.
 
-**superpowers-openclaw** installs all 14 superpowers skills into OpenClaw's native skill system and provides role-based templates for mapping the right skills to the right agents.
+For multi-agent setups, role-based templates help you map the right skills to the right agents — coders get TDD and debugging, orchestrators get planning and delegation, reviewers get systematic investigation.
 
 ## What You Get
 
-- **14 development workflow skills** available to all your agents
-- **Role-based templates** for coder, orchestrator, reviewer, researcher, and writer agents
+- **14 development workflow skills** available to your agents
+- **Role-based templates** for common agent roles (coder, orchestrator, reviewer, researcher, writer)
 - **One-command installer** with selective install, dry-run, and idempotent updates
 - **Clean uninstaller** that never touches your custom skills
 - **PR-ready adapter** (`.openclaw/`) for contributing OpenClaw support back to superpowers
@@ -53,7 +53,7 @@ openclaw skills list | grep openclaw-managed
 
 ## Agent Role Templates
 
-Each agent role benefits from different skills. Copy the relevant template into your agent's SOUL.md:
+If you run multiple agents with different roles, copy the relevant template into each agent's SOUL.md:
 
 | Role | Template | Key Skills |
 |------|----------|-----------|
@@ -63,7 +63,7 @@ Each agent role benefits from different skills. Copy the relevant template into 
 | **Researcher** | [`templates/researcher.md`](templates/researcher.md) | Brainstorming, debugging, verification |
 | **Writer** | [`templates/writer.md`](templates/writer.md) | Brainstorming, planning, writing skills |
 
-See [`docs/agent-roles.md`](docs/agent-roles.md) for the complete mapping table and rationale.
+Running a single agent? The **coder** template covers the broadest set of skills. See [`docs/agent-roles.md`](docs/agent-roles.md) for the complete mapping table and rationale.
 
 ## Customization
 
@@ -150,4 +150,4 @@ MIT — see [LICENSE](LICENSE)
 ## Credits
 
 - [Superpowers](https://github.com/obra/superpowers) by Jesse Vincent ([@obra](https://github.com/obra))
-- [OpenClaw](https://openclaw.ai) multi-agent platform
+- [OpenClaw](https://openclaw.ai)

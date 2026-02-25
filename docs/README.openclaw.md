@@ -1,6 +1,6 @@
 # Superpowers for OpenClaw
 
-Complete guide for using Superpowers with OpenClaw's multi-agent platform.
+Complete guide for using Superpowers with OpenClaw.
 
 ## Quick Install
 
@@ -132,11 +132,11 @@ By default, all agents see all installed skills. To restrict skills per agent, a
 
 See [agent-roles.md](agent-roles.md) for recommended per-role mappings.
 
-## Multi-Agent Integration
+## Agent Integration
 
 ### Adding skill awareness to agents
 
-Superpowers skills are discoverable, but agents perform best when their SOUL.md explicitly tells them which skills to use. Add a "Skills" section to each agent's SOUL.md:
+Superpowers skills are discoverable, but agents perform best when their SOUL.md explicitly tells them which skills to use. Add a "Skills" section to your agent's SOUL.md:
 
 ```markdown
 ## Skills — Use Them
@@ -150,20 +150,21 @@ use it. No exceptions.
 - **verification-before-completion** — Before claiming work is done.
 ```
 
-Pre-built templates for common roles (coder, orchestrator, reviewer, researcher, writer) are available in the `templates/` directory.
+Pre-built templates for common roles (coder, orchestrator, reviewer, researcher, writer) are available in the `templates/` directory. Running a single agent? The coder template covers the broadest skill set.
 
-### Orchestrator delegation pattern
+### Multi-agent workflow (optional)
 
-When an orchestrator delegates to a coder:
+If you run multiple agents, the skills compose naturally across them:
+
 1. Orchestrator uses **writing-plans** to create an implementation plan
-2. Orchestrator delegates the plan to the coder agent
+2. Orchestrator delegates the plan to a coder agent
 3. Coder uses **executing-plans** to work through it
 4. Coder uses **test-driven-development** for each task
 5. Coder uses **verification-before-completion** before reporting done
-6. Orchestrator uses **requesting-code-review** to route to reviewer
+6. Orchestrator uses **requesting-code-review** to route to a reviewer
 7. Reviewer uses **systematic-debugging** to investigate issues
 
-The skills compose naturally across agents in the workflow.
+This pattern works across any channel type — Slack, Discord, Telegram, or CLI.
 
 ## Tool Mapping
 
@@ -172,7 +173,7 @@ Superpowers skills were written for Claude Code. When skills reference Claude Co
 | Superpowers Reference | OpenClaw Equivalent |
 |----------------------|---------------------|
 | `TodoWrite` | Agent's task tracking or plan tool |
-| `Task` (subagents) | Delegate to another agent via Slack channel |
+| `Task` (subagents) | Delegate to another agent via channel or spawn subagent |
 | `Skill` tool | `openclaw skills info <name>` or native skill discovery |
 | `Read` / `Write` / `Edit` | Agent's native file tools |
 | `Bash` | Agent's `exec` tool |

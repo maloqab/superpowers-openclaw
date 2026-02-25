@@ -63,6 +63,10 @@ done
 # Pre-flight checks
 command -v git >/dev/null 2>&1 || die "git is required but not installed."
 
+if [[ -z "$OPENCLAW_DIR" || "$OPENCLAW_DIR" != /* ]]; then
+  die "OPENCLAW_DIR must be an absolute path. Got: '$OPENCLAW_DIR'"
+fi
+
 if [[ ! -d "$OPENCLAW_DIR" ]]; then
   die "OpenClaw directory not found at $OPENCLAW_DIR. Is OpenClaw installed?"
 fi

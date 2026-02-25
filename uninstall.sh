@@ -41,6 +41,11 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+if [[ -z "$OPENCLAW_DIR" || "$OPENCLAW_DIR" != /* ]]; then
+  err "OPENCLAW_DIR must be an absolute path. Got: '$OPENCLAW_DIR'"
+  exit 1
+fi
+
 if [[ ! -d "$SKILLS_DIR" ]]; then
   log "No skills directory found at $SKILLS_DIR. Nothing to remove."
   exit 0
@@ -51,7 +56,7 @@ TO_REMOVE=()
 for item in "$SKILLS_DIR"/*/; do
   [[ -L "${item%/}" ]] || continue
   target="$(readlink "${item%/}")"
-  if [[ "$target" == *"superpowers"* ]]; then
+  if [[ "$target" == "$SUPERPOWERS_DIR"* ]]; then
     name="$(basename "${item%/}")"
     if [[ -n "$SKILL_LIST" ]]; then
       IFS=',' read -ra REQUESTED <<< "$SKILL_LIST"

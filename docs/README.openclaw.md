@@ -182,7 +182,7 @@ Superpowers skills were written for Claude Code. When skills reference Claude Co
 
 ## Architecture
 
-```
+```text
 ~/.openclaw/
 ├── superpowers/                    # Git clone (source of truth)
 │   └── skills/

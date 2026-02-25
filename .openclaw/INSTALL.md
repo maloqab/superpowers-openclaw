@@ -62,7 +62,7 @@ Skills update instantly through symlinks. New skills from upstream require re-ru
 
 ```bash
 for link in ~/.openclaw/skills/*; do
-  [ -L "$link" ] && readlink "$link" | grep -q ".openclaw/superpowers" && rm "$link"
+  [ -L "$link" ] && readlink "$link" | grep -q '\.openclaw/superpowers' && rm "$link"
 done
 ```
 

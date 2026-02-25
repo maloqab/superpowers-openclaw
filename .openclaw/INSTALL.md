@@ -56,7 +56,11 @@ You should see superpowers skills (brainstorming, test-driven-development, syste
 cd ~/.openclaw/superpowers && git pull
 ```
 
-Skills update instantly through symlinks. New skills from upstream require re-running the symlink step or the installer.
+Skills update instantly through symlinks. New skills from upstream require re-running the symlink step or the installer, then restarting the gateway:
+
+```bash
+openclaw gateway restart
+```
 
 ## Uninstalling
 

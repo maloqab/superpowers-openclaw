@@ -87,7 +87,7 @@ Running a single agent? The **coder** template covers the broadest set of skills
 
 ### Filter skills per agent
 
-Add a `skills` array to your agent config in `openclaw.json`:
+Add a `skills` array to your agent config in `~/.openclaw/openclaw.json`:
 
 ```json
 {

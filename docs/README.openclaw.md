@@ -30,7 +30,8 @@ openclaw gateway restart
    mkdir -p ~/.openclaw/skills
    for skill in ~/.openclaw/superpowers/skills/*/; do
      name=$(basename "$skill")
-     [ ! -e ~/.openclaw/skills/"$name" ] && ln -s "$skill" ~/.openclaw/skills/"$name"
+     [ ! -e ~/.openclaw/skills/"$name" ] && [ ! -L ~/.openclaw/skills/"$name" ] && \
+       ln -s "$skill" ~/.openclaw/skills/"$name"
    done
    ```
 
@@ -111,7 +112,7 @@ openclaw skills check
 
 ## Filtering Skills Per Agent
 
-By default, all agents see all installed skills. To restrict skills per agent, add a `skills` array to the agent config in `openclaw.json`:
+By default, all agents see all installed skills. To restrict skills per agent, add a `skills` array to the agent config in `~/.openclaw/openclaw.json`:
 
 ```json
 {
@@ -189,8 +190,8 @@ Superpowers skills were written for Claude Code. When skills reference Claude Co
 │       ├── test-driven-development/SKILL.md
 │       └── ...
 ├── skills/                         # Managed skills directory
-│   ├── brainstorming -> ../superpowers/skills/brainstorming/
-│   ├── test-driven-development -> ../superpowers/skills/test-driven-development/
+│   ├── brainstorming -> ~/.openclaw/superpowers/skills/brainstorming/
+│   ├── test-driven-development -> ~/.openclaw/superpowers/skills/test-driven-development/
 │   ├── frontend-design/            # Your custom skills (untouched)
 │   └── ...
 └── openclaw.json                   # Main config

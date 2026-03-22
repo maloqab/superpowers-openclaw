@@ -205,6 +205,11 @@ if $DRY_RUN; then
   log "Dry run complete. Would install $linked skill(s), $skipped already present."
 else
   log "Installed $linked skill(s), $skipped already present."
+  # 修复：设置正确的技能目录权限，确保可执行
+  if [[ $linked -gt 0 ]]; then
+    chmod -R 755 "$SKILLS_DIR"
+    log "已设置技能目录权限为755"
+  fi
 fi
 
 # Verify

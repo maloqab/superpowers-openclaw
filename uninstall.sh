@@ -94,9 +94,14 @@ fi
 # Remove symlinks
 removed=0
 for name in "${TO_REMOVE[@]}"; do
-  rm "$SKILLS_DIR/$name"
-  log "Removed: $name"
-  removed=$((removed + 1))
+  symlink_path="$SKILLS_DIR/$name"
+  if [[ -L "$symlink_path" ]]; then
+    rm "$symlink_path"
+    log "Removed: $name"
+    removed=$((removed + 1))
+  else
+    warn "跳过: $name 不是有效的符号链接"
+  fi
 done
 
 # Optionally purge the clone
